@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
                                   child: Image.network(
-                                    "https://image.tmdb.org/t/p/original/${movie.posterPath}",
+                                    "${Api.imgPath}${movie.posterPath}",
                                     width: double.infinity,
                                     height: 128,
                                     loadingBuilder:
@@ -162,7 +162,7 @@ class _HomeState extends State<Home> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
                                   child: Image.network(
-                                    "https://image.tmdb.org/t/p/original/${movie.posterPath}",
+                                    "${Api.imgPath}${movie.posterPath}",
                                     width: double.infinity,
                                     height: 128,
                                     loadingBuilder:

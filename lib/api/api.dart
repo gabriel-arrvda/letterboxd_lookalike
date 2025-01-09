@@ -45,4 +45,6 @@ class Api {
       throw Exception('Failed to get movies');
     }
   }
+
+  static const imgPath = 'https://image.tmdb.org/t/p/original/';
 }

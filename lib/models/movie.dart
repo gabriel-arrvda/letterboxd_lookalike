@@ -1,4 +1,5 @@
 class Movie {
+  final int id;
   final String title;
   final String originalTitle;
   final String backdropPath;
@@ -8,6 +9,7 @@ class Movie {
   final String date;
 
   Movie({
+    required this.id,
     required this.title,
     required this.originalTitle,
     required this.backdropPath,
@@ -19,6 +21,7 @@ class Movie {
 
   factory Movie.fromMap(Map<String, dynamic> map) {
     return Movie(
+      id: map['id'],
       title: map['title'],
       backdropPath: map['backdrop_path'],
       description: map['overview'],
@@ -31,6 +34,7 @@ class Movie {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'title': title,
       'original_title': originalTitle,
       'backdrop_path': backdropPath,
@@ -39,5 +43,9 @@ class Movie {
       'vote_average': rating,
       'release_date': date,
     };
+  }
+
+  String getYear() {
+    return date.substring(0, 4);
   }
 }
