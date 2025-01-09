@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:letterboxd_lookalike/models/movie.dart';
+import 'package:letterboxd_lookalike/screens/movie_screen.dart';
 import 'package:letterboxd_lookalike/screens/popular.dart';
 import 'package:letterboxd_lookalike/screens/rated.dart';
 
@@ -20,6 +22,11 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Home(),
         '/popular': (context) => const Popular(),
         '/rated': (context) => const Rated(),
+        '/movie': (context) {
+          final movie = ModalRoute.of(context)!.settings.arguments as Movie;
+          return MovieScreen(
+              movie: movie); // Pass the movie object to the Movie widget
+        },
       },
       theme: ThemeData(
         useMaterial3: true,

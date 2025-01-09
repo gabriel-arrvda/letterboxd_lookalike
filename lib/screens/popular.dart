@@ -62,8 +62,10 @@ class _PopularState extends State<Popular> {
                           height: 220,
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(
-                                  context, '../movie/${movie.id}');
+                              Navigator.of(context).pushNamed(
+                                '/movie',
+                                arguments: movie,
+                              );
                             },
                             child: Card(
                               color: Theme.of(context).colorScheme.onPrimary,

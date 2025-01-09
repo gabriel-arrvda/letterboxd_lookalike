@@ -8,6 +8,8 @@ class Api {
   static const String apiKey =
       'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTk1YjYyOWZkNzdmNGQxYTMzZmYzNWNkNmFiODE2YyIsIm5iZiI6MTczNjM2NjE4OC4xODksInN1YiI6IjY3N2VkODZjYjExZDA4ODExMTdiMjE5OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.vRjwBlS6B1ws6t6ZUHDarxLcKAMFuSkWhqH3vpZ4y0k';
 
+  static const imgPath = 'https://image.tmdb.org/t/p/original/';
+
   Future<List<Movie>> getPopularMovies() async {
     final response = await http.get(
       Uri.parse('$baseUrl/movie/popular'),
@@ -46,5 +48,21 @@ class Api {
     }
   }
 
-  static const imgPath = 'https://image.tmdb.org/t/p/original/';
+  Future<Movie> getMovie(int id) async {
+    final response = await http.get(
+      Uri.parse('$baseUrl/movie/$id'),
+      headers: {
+        'accept': 'application/json',
+        'Authorization': 'Bearer $apiKey',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = json.decode(response.body);
+
+      return Movie.fromMap(data);
+    } else {
+      throw Exception('Failed to get movie');
+    }
+  }
 }

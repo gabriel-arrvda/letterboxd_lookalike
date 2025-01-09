@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                         if (!snapshot.hasData) {
                           return Center(
                             child: CircularProgressIndicator(
-                              color: Theme.of(context).colorScheme.secondary,
+                              color: Theme.of(context).colorScheme.tertiary,
                             ),
                           );
                         }
@@ -86,26 +86,33 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.network(
-                                    "${Api.imgPath}${movie.posterPath}",
-                                    width: double.infinity,
-                                    height: 128,
-                                    loadingBuilder:
-                                        (context, child, loadingProgress) {
-                                      if (loadingProgress == null) {
-                                        return child;
-                                      }
-                                      return Center(
-                                        child: CircularProgressIndicator(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .tertiary,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).pushNamed(
+                                          '/movie',
+                                          arguments: movie,
+                                        );
+                                      },
+                                      child: Image.network(
+                                        "${Api.imgPath}${movie.posterPath}",
+                                        width: double.infinity,
+                                        height: 128,
+                                        loadingBuilder:
+                                            (context, child, loadingProgress) {
+                                          if (loadingProgress == null) {
+                                            return child;
+                                          }
+                                          return Center(
+                                            child: CircularProgressIndicator(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .tertiary,
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    )),
                               );
                             });
                       }),
@@ -140,7 +147,7 @@ class _HomeState extends State<Home> {
                         if (!snapshot.hasData) {
                           return Center(
                             child: CircularProgressIndicator(
-                              color: Theme.of(context).colorScheme.secondary,
+                              color: Theme.of(context).colorScheme.tertiary,
                             ),
                           );
                         }
@@ -160,26 +167,33 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.network(
-                                    "${Api.imgPath}${movie.posterPath}",
-                                    width: double.infinity,
-                                    height: 128,
-                                    loadingBuilder:
-                                        (context, child, loadingProgress) {
-                                      if (loadingProgress == null) {
-                                        return child;
-                                      }
-                                      return Center(
-                                        child: CircularProgressIndicator(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .tertiary,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).pushNamed(
+                                          '/movie',
+                                          arguments: movie,
+                                        );
+                                      },
+                                      child: Image.network(
+                                        "${Api.imgPath}${movie.posterPath}",
+                                        width: double.infinity,
+                                        height: 128,
+                                        loadingBuilder:
+                                            (context, child, loadingProgress) {
+                                          if (loadingProgress == null) {
+                                            return child;
+                                          }
+                                          return Center(
+                                            child: CircularProgressIndicator(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .tertiary,
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    )),
                               );
                             });
                       }),
